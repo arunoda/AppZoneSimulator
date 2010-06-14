@@ -2,23 +2,31 @@
 
 include_once 'Session.php';
 include_once 'AppZoneException.php';
+include_once 'Logger.php';
+include_once 'errors.php';
 
 $response="";
 $request=null;
+$logger=new Logger();
 
 try{
 	authentication();
 	$request=getRequest();
 	
 	validateRequest($request);
+	
+	//message sending
 	sendMessage($request);
 	
-	$response=generateResponse("SBL-SMS-MT-2000", "SUCCESS");
-	//log it
+	//responsing
+	$statusCode="SBL-SMS-MT-2000";
+	$response=generateResponse($statusCode, $errors[$statusCode]);
+	$logger->logSever($request['address'], $request['message'], $statusCode, $errors[$statusCode]);
+	
 }
 catch(AppZoneException $ex){
 	$response=generateResponse($ex->getStatusCode(), $ex->getStatusMessage());
-	//log it
+	$logger->logSever($request['address'], $request['message'], $ex->getStatusCode(), $ex->getStatusMessage());
 }
 
 
@@ -36,6 +44,7 @@ echo $response;
  * get the response object or throws and AppZoneException
  */
 function getRequest(){
+	global $errors;
 	if(isset($_POST['version']) && $_POST['address'] && $_POST['message']){
 		$rtn=array();
 		$rtn['version']=$_POST['version'];
@@ -45,7 +54,7 @@ function getRequest(){
 		return $rtn;
 	}
 	else{
-		throw new AppZoneException("Bad   Request.    Request   missing   required parameters or parameter format is wrong.", "400");
+		throw new AppZoneException($errors['400'], "400");
 	}
 }
 
@@ -54,6 +63,7 @@ function getRequest(){
  * return true  or throws a an AppZoneException
  */
 function authentication(){
+	global $errors;
 	$session=new Session();
 		
 	if(
@@ -61,7 +71,7 @@ function authentication(){
 		md5($session->password)==$_SERVER['PHP_AUTH_PW']){
 		return true;
 	}else{
-		throw new AppZoneException("Unauthorized. Authentication details missing or unformatted authentication details exists.", "401");
+		throw new AppZoneException($errors['401'], "401");
 	}
 	
 }
@@ -93,7 +103,14 @@ function generateResponse($statusCode,$statusMessage){
 
 
 function sendMessage($request){
-	
+	global $logger;
+	$address=explode(":", $request['address']);
+	if($address[0]=='tel'){
+		$logger->sendSMS($request['message'], $address[1]);
+	}
+	else if($address[0]=='list'){
+		throw new Exception("Not Implemented");
+	}
 }
 
 

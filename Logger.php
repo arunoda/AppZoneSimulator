@@ -7,10 +7,10 @@ class Logger{
 		
 	}
 	
-	public  function logSever($correlator,$message,$statusCode,$statusMessage){
+	public  function logSever($address,$message,$statusCode,$statusMessage){
 		$data=array(
 			"appName"=>$this->session->appName,
-			"correlator"=>$correlator,
+			"address"=>$address,
 			"message"=>$message,
 			"statusCode"=>$statusCode,
 			"statusMessage"=>$statusMessage,
@@ -70,7 +70,7 @@ class Logger{
 	
 	private function log($filename,$str){
 		
-		$f=fopen($filename,"w+");
+		$f=fopen($filename,"a+");
 		fwrite($f, $str . "\n");
 		fclose($f);
 	}
