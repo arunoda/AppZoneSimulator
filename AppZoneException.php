@@ -3,11 +3,11 @@
 class AppZoneException extends Exception{
 	var $code;
 	var $response;
-	var $message;
+	var $statusMessage;
 	
 	public function __construct($message,$code,$response=null){
 		parent::__construct($message);
-		$this->message=$message;
+		$this->statusMessage=$message;
 		$this->code=$code;
 		$this->response=$response;
 	}
@@ -17,7 +17,7 @@ class AppZoneException extends Exception{
 	}
 	
 	public function getStatusMessage(){
-		return $this->message;
+		return $this->statusMessage;
 	}
 	
 	public function getRawResponse(){
