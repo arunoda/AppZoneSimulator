@@ -4,7 +4,7 @@ include_once 'AppZoneSender.php';
 
 
 try{
-	$sender=new AppZoneSender("http://localhost/jobs/appZoneSimulator/", "app", "pass");
+	$sender=new AppZoneSender("http://localhost/jobs/appZone-sim-php/", "app", "pass");
 	$resp=$sender->sms("Hi New One",array("0721675234","0721162733"));
 	
 	echo $resp;
