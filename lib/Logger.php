@@ -18,7 +18,7 @@ class Logger{
 		);
 		
 		$json=json_encode($data);
-		$this->log(dirname(__FILE__)."/data/server.log", $json);		
+		$this->log(dirname(dirname(__FILE__))."/data/server.log", $json);		
 	}
 	
 	public  function logPhone($fromNo,$correlator,$message){
@@ -31,7 +31,7 @@ class Logger{
 		);
 		
 		$json=json_encode($data);
-		$this->log(dirname(__FILE__)."/data/phone.log", $json);
+		$this->log(dirname(dirname(__FILE__))."/data/phone.log", $json);
 	}
 	
 	public function sendSMS($message,$toNo){
@@ -42,23 +42,23 @@ class Logger{
 		);
 		
 		$json=json_encode($data);
-		$this->log(dirname(__FILE__).'/data/phones/'.$toNo.'.sms', $json);
+		$this->log(dirname(dirname(__FILE__)).'/data/phones/'.$toNo.'.sms', $json);
 	}
 	
 	public  function getServerLog(){
-		$lines=file(dirname(__FILE__)."/data/server.log");
+		$lines=file(dirname(dirname(__FILE__))."/data/server.log");
 		$json=implode(",", $lines);
 		return json_decode("[$json]",true);
 	}
 	
 	public  function getPhoneLog(){
-		$lines=file(dirname(__FILE__)."/data/phone.log");
+		$lines=file(dirname(dirname(__FILE__))."/data/phone.log");
 		$json=implode(",", $lines);
 		return json_decode("[$json]",true);
 	}
 	
 	public function getSMSLog($no){
-		$filename=dirname(__FILE__)."/data/phones/{$no}.sms";
+		$filename=dirname(dirname(__FILE__))."/data/phones/{$no}.sms";
 		if(!file_exists($filename)){
 			return  false;
 		}
