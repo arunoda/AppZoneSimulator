@@ -21,12 +21,13 @@ class Logger{
 		$this->log(dirname(dirname(__FILE__))."/data/server.log", $json);		
 	}
 	
-	public  function logPhone($fromNo,$correlator,$message){
+	public  function logPhone($fromNo,$toNo,$correlator,$message){
 		$data=array(
 			"appName"=>$this->session->appName,
 			"correlator"=>$correlator,
 			"message"=>$message,
 			"from"=>$fromNo,
+			"to"=>$toNo,
 			"timestamp"=>time()
 		);
 		
@@ -43,6 +44,8 @@ class Logger{
 		
 		$json=json_encode($data);
 		$this->log(dirname(dirname(__FILE__)).'/data/phones/'.$toNo.'.sms', $json);
+		$this->logPhone($this->session->appName,$toNo, "toDo", $message);
+		return true;
 	}
 	
 	public  function getServerLog(){

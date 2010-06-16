@@ -4,11 +4,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Log Dumper</title>
 <style type='text/css'>
+	body,div,span,a,p,button{
+		font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+		color:rgb(50,50,50);
+	}
+	
 	#serverLog{
 		width:940px;
-		height:300px;
+		height:250px;
 		overflow : auto;
+		border:1px solid rgb(150,150,150);
+		padding:10px;
 	}
+	
+	#phoneLog{
+		width:940px;
+		height:250px;
+		overflow : auto;
+		border:1px solid rgb(150,150,150);
+		padding:10px;
+	}
+	
 </style>
 
 <script type='text/javascript' src='jquery-1.4.2.min.js'></script>
@@ -16,6 +32,7 @@
 <script type='text/javascript'>
 	$(document).ready(function(){
 		getServerLog();
+		getPhoneLog();
 	});
 
 	function getServerLog(){
@@ -31,8 +48,8 @@
 				date.setTime(item.timestamp*1000);
 				
 				html+='appName:' +item.appName + ', ' + 'address:' + item.address +
-					' message:' + item.message;
-				html+="@" + date.format() + "<br>";
+					' message:' + item.message + ', status:' + item.statusCode;
+				html+=" @" + date.format() + "<br>";
 			}
 
 			var div=$('#serverLog');
@@ -42,6 +59,32 @@
 		});
 
 		setTimeout('getServerLog();',500);
+	}
+
+	function getPhoneLog(){
+		$.get('service.php?service=phoneLog',function(resp){
+			var response=null;
+			eval('response=' + resp);
+
+			
+			var html="";
+			for(index in response){
+				var item=response[index];
+				var date=new Date();
+				date.setTime(item.timestamp*1000);
+				
+				html+='from:' +item.from + ', ' + 'to:' + item.to +
+					' message:' + item.message ;
+				html+=" @" + date.format() + "<br>";
+			}
+
+			var div=$('#phoneLog');
+			div.html(html);
+			div.attr('scrollTop',div.attr('scrollHeight'));
+			
+		});
+
+		setTimeout('getPhoneLog();',500);
 	}
 </script>
 </head>
