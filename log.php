@@ -25,17 +25,41 @@
 		padding:10px;
 	}
 	
+	#pause{
+		width:70px;
+		height:30px;
+	}
+	
 </style>
 
 <script type='text/javascript' src='jquery-1.4.2.min.js'></script>
 <script type='text/javascript' src='dateFormat.js'></script>
 <script type='text/javascript'>
+	var pause=false;
 	$(document).ready(function(){
 		getServerLog();
 		getPhoneLog();
+
+		$('#pause').click(function(){
+			var buttonName="Play";
+			if(pause){
+				pause=false;
+				buttonName='Pause';
+			}
+			else{
+				pause=true;
+			}
+
+			$('#pause').text(buttonName);
+		});
 	});
 
 	function getServerLog(){
+		if(pause) {
+			setTimeout('getServerLog();',500);
+			return;
+		}
+		
 		$.get('service.php?service=serverLog',function(resp){
 			var response=null;
 			eval('response=' + resp);
@@ -62,6 +86,10 @@
 	}
 
 	function getPhoneLog(){
+		if(pause) {
+			setTimeout('getPhoneLog();',500);
+			return;
+		}
 		$.get('service.php?service=phoneLog',function(resp){
 			var response=null;
 			eval('response=' + resp);
@@ -89,6 +117,7 @@
 </script>
 </head>
 <body>
+<button id='pause'>Pause</button>
 <h2>Server Log</h2>
 <div id='serverLog'></div>
 <h2>Phone Log</h2>
