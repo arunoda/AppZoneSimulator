@@ -44,7 +44,6 @@ class Logger{
 		
 		$json=json_encode($data);
 		$this->log(dirname(dirname(__FILE__)).'/data/phones/'.$toNo.'.sms', $json);
-		$this->logPhone($this->session->appName,$toNo, "toDo", $message);
 		return true;
 	}
 	
