@@ -12,10 +12,10 @@ try{
 	$rtn="{$reciever->getAddress()} :: {$reciever->getMessage()} :: {$reciever->getCorrelator()}";
 	
 	$sender=new AppZoneSender("http://localhost/jobs/appZone-sim-php/", "app", "pass");
-	$res=$sender->sms("Thanks", $reciever->getAddress());
-	$res=$sender->smsToAll("Hi all, we got a new message");
+	$res=$sender->sms("pingback:".$reciever->getMessage(), $reciever->getAddress());
+	//$res=$sender->smsToAll("Hi all, we got a new message");
 }
 catch(AppZoneException $ex){
-	echo "ss";
+	echo $ex->getStatusMessage();
 }
 

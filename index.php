@@ -9,7 +9,7 @@ $logger=new Logger();
 try{
 	authentication();
 	$request=getRequest();
-	
+	//$request=$_GET;
 	validateRequest($request);
 	
 	//message sending
@@ -78,8 +78,18 @@ function authentication(){
  * @return true 
  * @throws AppZoneException
  */
-function validateRequest(){
+function validateRequest($request){
+	$session=new Session();
+	$registrar=new Registrar($session->appName);
+	$list=$registrar->getPhoneNoList();
+	$address=explode(":", $request['address']);
 	
+	if(in_array($address[1], $list)){
+		return true;
+	}
+	else{
+		throw new AppZoneException($errors['CORE-SMS-MT-4018'], "CORE-SMS-MT-4018");
+	}
 }
 /**
  * @param unknown_type $statusCode
@@ -102,11 +112,12 @@ function generateResponse($statusCode,$statusMessage){
 function sendMessage($request){
 	global $logger;
 	$address=explode(":", $request['address']);
+	
 	if($address[0]=='tel'){
 		$logger->sendSMS($request['message'], $address[1]);
 	}
 	else if($address[0]=='list'){
-		throw new Exception("Not Implemented");
+		throw new AppZoneException($errors['500'], "500");
 	}
 }
 
