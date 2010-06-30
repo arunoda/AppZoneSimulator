@@ -2,11 +2,15 @@
 
 include_once 'lib/init.php';
 
-$logger=new Logger();
-$session=new Session();
-$registrar=new Registrar($session->appName);
+$logger;$session;$registrar;
+if(Session::isExists()){
+	$logger=new Logger();
+	$session=new Session();
+	$registrar=new Registrar($session->appName);
+}
 
 $type=(isset($_GET['service']))?$_GET['service']:null;
+
 if($type=='serverLog'){
 	$log=$logger->getServerLog();
 	echo json_encode($log);
@@ -44,6 +48,19 @@ if($type=='serverLog'){
 		echo json_encode("Not related to an app");
 	}
 	
+}else if($type=='session'){
+	$action=(isset($_GET['action']))?$_GET['action']:null;
+	if($action=='destroy'){
+		Session::destroy();
+	}else if($action=='create'){
+		$appName=(isset($_GET['appName']))?$_GET['appName']:null;
+		$password=(isset($_GET['password']))?$_GET['password']:null;
+		$reciever=(isset($_GET['reciever']))?$_GET['reciever']:null;
+		
+		Session::create($appName, $password, $reciever);
+	}else if($action=='isExists'){
+		echo json_encode(Session::isExists());
+	}
 }else{
 	echo json_encode('not implemented yet');
 }

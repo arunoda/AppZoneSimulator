@@ -7,6 +7,7 @@
 	body,div,span,a,p,button{
 		font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
 		color:rgb(50,50,50);
+		font-size:12px;
 	}
 	
 	#serverLog{

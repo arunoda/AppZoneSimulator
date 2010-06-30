@@ -9,13 +9,18 @@ class Session{
 	
 	public function __construct(){
 		
-		$res=file(dirname(dirname(__FILE__))."/data/session.data");
-		
-		$resArr=json_decode($res[0],true);
-		if(!$resArr) throw new Exception("Malformed JSON String");
-		$this->appName=$resArr['appName'];
-		$this->password=$resArr['password'];
-		$this->reciever=$resArr['reciever'];
+		$dataFile=dirname(dirname(__FILE__))."/data/session.data";
+		if(file_exists($dataFile)){
+			$res=file($dataFile);
+			$resArr=json_decode($res[0],true);
+			if(!$resArr) throw new Exception("Malformed JSON String");
+			$this->appName=$resArr['appName'];
+			$this->password=$resArr['password'];
+			$this->reciever=$resArr['reciever'];	
+		}
+		else{
+			throw new Exception("Session is not created yet!");
+		}
 	}
 	
 	public static function destroy(){
@@ -37,6 +42,10 @@ class Session{
 		);
 		
 		$res=mkdir(dirname(dirname(__FILE__))."/data/phones/");
+	}
+	
+	public static function isExists(){
+		return file_exists(dirname(dirname(__FILE__))."/data/session.data");
 	}
 	
 	private static function writeIt($filename,$str){

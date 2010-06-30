@@ -1,11 +1,2 @@
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"Bad   Request.    Request   missing   required parameters or parameter format is wrong.","timestamp":1277876334}
-{"appName":"app","address":[],"message":"pingback:app aa","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277876379}
-{"appName":"app","address":[],"message":"pingback:app dd","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277876435}
-{"appName":"app","address":[],"message":"pingback:app aa","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277876549}
-{"appName":"app","address":[],"message":"pingback:app aaa","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277876701}
-{"appName":"app","address":[],"message":"pingback:app aa","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277876774}
-{"appName":"app","address":"[]","message":"pingback:app aa","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277876842}
-{"appName":"app","address":"[\"0721222222\"]","message":"pingback:app aa","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277877025}
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"Bad   Request.    Request   missing   required parameters or parameter format is wrong.","timestamp":1277877290}
-{"appName":"app","address":"[\"0721222222\"]","message":"pingback:app aa","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277877336}
-{"appName":"app","address":"[\"0721222222\"]","message":"pingback:app aa","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277877361}
+{"appName":"app","address":"[\"0721777777\"]","message":"pingback:app hi all","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277919611}
+{"appName":"app","address":"[\"0721777777\"]","message":"pingback:app another message","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1277923822}

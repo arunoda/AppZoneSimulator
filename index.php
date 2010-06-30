@@ -9,7 +9,7 @@ $logger=new Logger();
 //var_dump(getallheaders());
 
 try{
-	//authentication();
+	authentication();
 	$request=getRequest();
 	
 	validateRequest($request);
@@ -20,7 +20,8 @@ try{
 	//responsing
 	$statusCode="SBL-SMS-MT-2000";
 	$response=generateResponse($statusCode, $errors[$statusCode]);
-	$logger->logSever(json_encode($request['address']), $request['message'], $statusCode, $errors[$statusCode]);
+	$address=(isset($request['address']))?json_encode($request['address']):"list:" . $response['list'];
+	$logger->logSever($address, $request['message'], $statusCode, $errors[$statusCode]);
 	
 }
 catch(AppZoneException $ex){
@@ -157,5 +158,3 @@ function sendMessage($request){
 		}
 	}
 }
-
-
