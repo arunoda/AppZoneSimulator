@@ -6,6 +6,8 @@ $response="";
 $request=null;
 $logger=new Logger();
 
+//var_dump(getallheaders());
+
 try{
 	//authentication();
 	$request=getRequest();
@@ -18,7 +20,7 @@ try{
 	//responsing
 	$statusCode="SBL-SMS-MT-2000";
 	$response=generateResponse($statusCode, $errors[$statusCode]);
-	$logger->logSever($request['address'], $request['message'], $statusCode, $errors[$statusCode]);
+	$logger->logSever(json_encode($request['address']), $request['message'], $statusCode, $errors[$statusCode]);
 	
 }
 catch(AppZoneException $ex){

@@ -15,7 +15,7 @@ class Registrar{
 	
 	public function register($phoneNo){
 		$list=$this->getPhoneNoList();
-		if(!in_array($phoneNo,$list)){
+		if(!$list || !in_array($phoneNo,$list)){
 			$list[]=$phoneNo;
 			$this->writeIt(json_encode($list));
 		}
