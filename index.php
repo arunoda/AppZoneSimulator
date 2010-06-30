@@ -7,9 +7,9 @@ $request=null;
 $logger=new Logger();
 
 try{
-	authentication();
+	//authentication();
 	$request=getRequest();
-	//$request=$_GET;
+	
 	validateRequest($request);
 	
 	//message sending
@@ -42,12 +42,37 @@ echo $response;
  */
 function getRequest(){
 	global $errors;
-	if(isset($_POST['version']) && $_POST['address'] && $_POST['message']){
+	if(isset($_GET['version']) && $_GET['address'] && $_GET['message']){
 		$rtn=array();
-		$rtn['version']=$_POST['version'];
-		$rtn['address']=$_POST['address'];
-		$rtn['message']=$_POST['message'];
+		$rtn['version']=$_GET['version'];
+		$rtn['message']=$_GET['message'];
+		$rtn['address']=array();
+		$qryStr=$_SERVER["QUERY_STRING"];
+		$params=explode("&", $qryStr);
 		
+		//decoding address from the query string
+		foreach ($params as $param){
+			$parts=explode("=", $param);
+			if($parts[0]=='address'){
+				$teleParts=explode(":", $parts[1]);
+				if(count($teleParts)==2){
+					if($teleParts[0]=="tel"){
+						$rtn['address'][]=$teleParts[1];
+					}
+					else if($teleParts[0]=="list"){
+						$rtn['list']=$teleParts[1];
+						unset($rtn['address']);
+						break;
+					}
+					else{
+						throw new AppZoneException($errors['400'], "400");
+					}
+				}
+				else{
+					throw new AppZoneException($errors['400'], "400");
+				}
+			}
+		}
 		return $rtn;
 	}
 	else{
@@ -79,16 +104,20 @@ function authentication(){
  * @throws AppZoneException
  */
 function validateRequest($request){
+	checkForRegAddresses($request);
+}
+
+function checkForRegAddresses($request){
 	$session=new Session();
 	$registrar=new Registrar($session->appName);
 	$list=$registrar->getPhoneNoList();
-	$address=explode(":", $request['address']);
 	
-	if(in_array($address[1], $list)){
-		return true;
-	}
-	else{
-		throw new AppZoneException($errors['CORE-SMS-MT-4018'], "CORE-SMS-MT-4018");
+	if(isset($request['address'])){
+		foreach ($request['address'] as $phoneNo){
+			if(!in_array($phoneNo, $list)){
+				throw new AppZoneException($errors['CORE-SMS-MT-4018'], "CORE-SMS-MT-4018");
+			}
+		}	
 	}
 }
 /**
@@ -111,13 +140,19 @@ function generateResponse($statusCode,$statusMessage){
 
 function sendMessage($request){
 	global $logger;
-	$address=explode(":", $request['address']);
 	
-	if($address[0]=='tel'){
-		$logger->sendSMS($request['message'], $address[1]);
+	if(isset($request['address'])){
+		foreach ($request['address'] as $address){
+			$logger->sendSMS($request['message'], $address);	
+		}
 	}
-	else if($address[0]=='list'){
-		throw new AppZoneException($errors['500'], "500");
+	else if(isset($request['list']) && $request['list']=='all_registered'){
+		$session=new Session();
+		$registrar=new Registrar($session->appName);
+		$phoneList=$registrar->getPhoneNoList();
+		foreach ($phoneList as $phoneNo){
+			$logger->sendSMS($request['message'], $phoneNo);	
+		}
 	}
 }
 
