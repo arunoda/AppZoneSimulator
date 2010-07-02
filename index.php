@@ -6,7 +6,6 @@ $response="";
 $request=null;
 $logger=new Logger();
 
-//var_dump(getallheaders());
 
 try{
 	authentication();
@@ -45,14 +44,18 @@ echo $response;
  */
 function getRequest(){
 	global $errors;
-	if(isset($_GET['version']) && $_GET['address'] && $_GET['message']){
+	if(isset($_REQUEST['version']) && $_REQUEST['address'] && $_REQUEST['message']){
 		$rtn=array();
-		$rtn['version']=$_GET['version'];
-		$rtn['message']=$_GET['message'];
+		$rtn['version']=$_REQUEST['version'];
+		$rtn['message']=$_REQUEST['message'];
 		$rtn['address']=array();
 		$qryStr=$_SERVER["QUERY_STRING"];
-		$params=explode("&", $qryStr);
+		if(!$_GET['address']){
+			$qryStr=urldecode(@file_get_contents('php://input'));
+		}
 		
+		$params=explode("&", $qryStr);
+		//throw new AppZoneException($qryStr, "400");
 		//decoding address from the query string
 		foreach ($params as $param){
 			$parts=explode("=", $param);
@@ -72,7 +75,7 @@ function getRequest(){
 					}
 				}
 				else{
-					throw new AppZoneException($errors['400'], "400");
+					throw new AppZoneException($errors['400'], $qryStr);
 				}
 			}
 		}
