@@ -45,7 +45,7 @@ if($type=='serverLog'){
 		}
 	}
 	else{
-		echo json_encode("Not related to an app");
+		echo json_encode("Not related to an Appzone application");
 	}
 	
 }else if($type=='session'){

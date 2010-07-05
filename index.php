@@ -1,5 +1,10 @@
 <?php 
 
+if(!isset($_REQUEST['version'])){
+	header("Location: ui.php");
+	exit(0);
+}
+
 include_once 'lib/init.php';
 
 $response="";
