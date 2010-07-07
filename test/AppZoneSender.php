@@ -58,17 +58,14 @@ class AppZoneSender{
 	
 	private function sendRequest($postfields){
 		
-		$ch = curl_init($this->server."?".$postfields);
+		$ch = curl_init($this->server);
 		//curl_setopt($ch, CURLOPT_HEADER, 0);
-		//curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch,CURLOPT_HTTPHEADER,array($this->getAuthHeader()));
-		//curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		$res = curl_exec($ch);       
-		if(curl_errno($ch)>0){
-			$res=curl_error($ch);
-		}
 		curl_close($ch);
 		return $this->handleResponse($res);
 	}

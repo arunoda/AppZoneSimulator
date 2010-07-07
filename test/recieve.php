@@ -9,11 +9,11 @@ include_once 'AppZoneReciever.php';
 
 try{
 	$reciever=new AppZoneReciever();
-	$rtn="{$reciever->getAddress()} :: {$reciever->getMessage()} :: {$reciever->getCorrelator()}";
+	$parts=explode(" ", $reciever->getMessage());
 	
 	$sender=new AppZoneSender("http://localhost/jobs/appZone-sim-php/", "app", "pass");
-	$res=$sender->sms("pingback:".$reciever->getMessage(), $reciever->getAddress());
-	//$res=$sender->smsToAll("Hi all, we got a new message");
+	$res=$sender->sms("Thank you for join our network", $reciever->getAddress());
+	$res=$sender->smsToAll("We have an new Member: " . $parts[1]);
 }
 catch(AppZoneException $ex){
 	echo $ex->getStatusMessage();

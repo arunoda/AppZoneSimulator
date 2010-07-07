@@ -24,7 +24,7 @@ try{
 	//responsing
 	$statusCode="SBL-SMS-MT-2000";
 	$response=generateResponse($statusCode, $errors[$statusCode]);
-	$address=(isset($request['address']))?json_encode($request['address']):"list:" . $response['list'];
+	$address=(isset($request['address']))?json_encode($request['address']):"list:" . $request['list'];
 	$logger->logSever($address, $request['message'], $statusCode, $errors[$statusCode]);
 	
 }
