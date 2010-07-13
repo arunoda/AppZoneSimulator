@@ -11,9 +11,9 @@ try{
 	$reciever=new AppZoneReciever();
 	$parts=explode(" ", $reciever->getMessage());
 	
-	$sender=new AppZoneSender("http://localhost/jobs/appZone-sim-php/", "app", "pass");
-	$res=$sender->sms("Thank you for join our network", $reciever->getAddress());
-	$res=$sender->smsToAll("We have an new Member: " . $parts[1]);
+	$sender=new AppZoneSender("http://localhost/jobs/appZone-sim-php/", "demo-app", "pass");
+	$res=$sender->sms("Your message has been delivered!", $reciever->getAddress());
+	$res=$sender->smsToAll($parts[1] . " says " . str_replace("{$parts[0]} {$parts[1]}","", $reciever->getMessage()));
 }
 catch(AppZoneException $ex){
 	echo $ex->getStatusMessage();

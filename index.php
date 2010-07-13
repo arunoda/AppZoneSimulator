@@ -119,6 +119,7 @@ function validateRequest($request){
 }
 
 function checkForRegAddresses($request){
+	global $errors;
 	$session=new Session();
 	$registrar=new Registrar($session->appName);
 	$list=$registrar->getPhoneNoList();

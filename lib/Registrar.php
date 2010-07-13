@@ -37,13 +37,13 @@ class Registrar{
 	public function getPhoneNoList(){
 		$filename=dirname(dirname(__FILE__))."/data/phones/".$this->appName.".lst";
 		if(!file_exists($filename)){
-			return  false;
+			return  array();
 		}
 		
 		$lines=file($filename);
 		$json=implode("\n", $lines);
 		$rtn=json_decode($json,true);
-		return (count($rtn)>0)?$rtn:false;	
+		return (count($rtn)>0)?$rtn:array();	
 	}
 	
 	public function writeIt($str){

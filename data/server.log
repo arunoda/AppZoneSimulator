@@ -1,42 +1,9 @@
-{"appName":"app","address":"[\"07211111111\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278361146}
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"Bad   Request.    Request   missing   required parameters or parameter format is wrong.","timestamp":1278361146}
-{"appName":"app","address":"[\"0721111111\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278361174}
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"Bad   Request.    Request   missing   required parameters or parameter format is wrong.","timestamp":1278361174}
-{"appName":"app","address":"[\"0721111111\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278361225}
-{"appName":"app","address":"[\"0721111111\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278361376}
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"1","timestamp":1278361376}
-{"appName":"app","address":"[\"0721111111\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278361511}
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"1","timestamp":1278361511}
-{"appName":"app","address":"[\"0721111111\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278361517}
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"1","timestamp":1278361517}
-{"appName":"app","address":"\"<mchoice_sdp_sms_response>\\t<version>1.0<\\\/version>\\t<correlator>10051016580002<\\\/correlator>\\t<status_code>SBL-SMS-MT-2000<\\\/status_code>\\t<status_message>SUCCESS<\\\/status_message><\\\/mchoice_sdp_sms_response>\"","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278361770}
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"1","timestamp":1278361770}
-{"appName":"app","address":"{\"version\":\"1.0\",\"message\":\"Thank you for join our network\",\"address\":[\"0721111111\"]}","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278361806}
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"1","timestamp":1278361806}
-{"appName":"app","address":"[\"0721111111\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278361927}
-{"appName":"app","address":"ss","message":null,"statusCode":"400","statusMessage":"1","timestamp":1278361927}
-{"appName":"app","address":"[\"0721666666\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278523315}
-{"appName":"app","address":null,"message":null,"statusCode":"400","statusMessage":"1","timestamp":1278523315}
-{"appName":"app","address":"[\"0721666666\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278523528}
-{"appName":"app","address":null,"message":null,"statusCode":"400888","statusMessage":"1","timestamp":1278523528}
-{"appName":"app","address":"[\"0721666666\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278523558}
-{"appName":"app","address":null,"message":null,"statusCode":null,"statusMessage":"1","timestamp":1278523558}
-{"appName":"app","address":null,"message":null,"statusCode":"version=1.0&address=tel:0721666666&message=Thank you for join our network","statusMessage":"2","timestamp":1278523609}
-{"appName":"app","address":null,"message":null,"statusCode":"version=1.0&address=tel:0721666666&message=Thank you for join our network","statusMessage":"2","timestamp":1278523671}
-{"appName":"app","address":null,"message":null,"statusCode":null,"statusMessage":"1","timestamp":1278523760}
-{"appName":"app","address":null,"message":null,"statusCode":null,"statusMessage":"1","timestamp":1278523769}
-{"appName":"app","address":null,"message":null,"statusCode":"version=1.0&address=tel:0721666666&message=Thank you for join our network","statusMessage":"2","timestamp":1278523788}
-{"appName":"app","address":null,"message":null,"statusCode":null,"statusMessage":"1","timestamp":1278523829}
-{"appName":"app","address":null,"message":null,"statusCode":"version=1.0&address=list:all_registered&message=We have an new Member: sdfs","statusMessage":"2","timestamp":1278523862}
-{"appName":"app","address":"[\"0721666666\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278523903}
-{"appName":"app","address":"list:<","message":"We have an new Member: sd","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278523903}
-{"appName":"app","address":"[\"0721666666\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278523994}
-{"appName":"app","address":"list:<","message":"We have an new Member: aa","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278523994}
-{"appName":"app","address":"[\"0721666666\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278524210}
-{"appName":"app","address":"list:<","message":"We have an new Member: hi","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278524210}
-{"appName":"app","address":"[\"0721666666\"]","message":"{\"version\":\"1.0\",\"message\":\"Thank you for join our network\",\"address\":[\"0721666666\"]}","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278524328}
-{"appName":"app","address":"list:<","message":"{\"version\":\"1.0\",\"message\":\"We have an new Member: hi\",\"list\":\"all_registered\"}","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278524328}
-{"appName":"app","address":"[\"0721666666\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278524391}
-{"appName":"app","address":"list:all_registered","message":"We have an new Member: hi","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278524391}
-{"appName":"app","address":"[\"0721666666\"]","message":"Thank you for join our network","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278524399}
-{"appName":"app","address":"list:all_registered","message":"We have an new Member: bye","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1278524399}
+{"appName":"demo-app","address":["0721333333"],"message":"Your message has been delivered!","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015149}
+{"appName":"demo-app","address":["0721333333"],"message":"Your message has been delivered!","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015377}
+{"appName":"demo-app","address":null,"message":null,"statusCode":"401","statusMessage":"Unauthorized. Authentication details missing or unformatted authentication details exists.","timestamp":1279015524}
+{"appName":"demo-app","address":["0721675234","0721162733"],"message":"Hi New One","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015543}
+{"appName":"demo-app","address":["0721675234","0721162733"],"message":"Hi New One","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015588}
+{"appName":"demo-app","address":["0721333333"],"message":"Your message has been delivered!","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015630}
+{"appName":"demo-app","address":["0721333333"],"message":"Your message has been delivered!","statusCode":"CORE-SMS-MT-4018","statusMessage":"Requested category of user is not allowed to use the application","timestamp":1279015692}
+{"appName":"demo-app","address":"[\"0721333333\"]","message":"Your message has been delivered!","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1279015779}
+{"appName":"demo-app","address":"list:all_registered","message":"arunoda says  Hi guyes? are you comming today","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1279015779}
