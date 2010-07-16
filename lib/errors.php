@@ -1,4 +1,10 @@
 <?php 
+/*********************************
+ * @author Arunoda Susiripala
+ * @copyright Arunoda Susiripala
+ * @licence http://www.gnu.org/licenses/gpl-3.0.txt
+ */
+
 $errors=array();
 
 $errors['SBL-SMS-MT-2000']='SUCCESS';

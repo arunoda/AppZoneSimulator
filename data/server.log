@@ -1,9 +1,2 @@
-{"appName":"demo-app","address":["0721333333"],"message":"Your message has been delivered!","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015149}
-{"appName":"demo-app","address":["0721333333"],"message":"Your message has been delivered!","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015377}
-{"appName":"demo-app","address":null,"message":null,"statusCode":"401","statusMessage":"Unauthorized. Authentication details missing or unformatted authentication details exists.","timestamp":1279015524}
-{"appName":"demo-app","address":["0721675234","0721162733"],"message":"Hi New One","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015543}
-{"appName":"demo-app","address":["0721675234","0721162733"],"message":"Hi New One","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015588}
-{"appName":"demo-app","address":["0721333333"],"message":"Your message has been delivered!","statusCode":"CORE-SMS-MT-4018","statusMessage":null,"timestamp":1279015630}
-{"appName":"demo-app","address":["0721333333"],"message":"Your message has been delivered!","statusCode":"CORE-SMS-MT-4018","statusMessage":"Requested category of user is not allowed to use the application","timestamp":1279015692}
-{"appName":"demo-app","address":"[\"0721333333\"]","message":"Your message has been delivered!","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1279015779}
-{"appName":"demo-app","address":"list:all_registered","message":"arunoda says  Hi guyes? are you comming today","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1279015779}
+{"appName":"demo-app","address":"[\"0721333333\"]","message":"Your message has been delivered!","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1279294758}
+{"appName":"demo-app","address":"list:all_registered","message":"hi says  all","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1279294758}

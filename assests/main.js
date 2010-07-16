@@ -1,3 +1,9 @@
+/*********************************
+ * @author Arunoda Susiripala
+ * @copyright Arunoda Susiripala
+ * @licence http://www.gnu.org/licenses/gpl-3.0.txt
+ */
+
 $(document).ready(function(){
 	$('#contentBar').tabs();
 	$('button').button();

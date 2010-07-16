@@ -1,4 +1,9 @@
 <?php
+/*********************************
+ * @author Arunoda Susiripala
+ * @copyright Arunoda Susiripala
+ * @licence http://www.gnu.org/licenses/gpl-3.0.txt
+ */
 
 include_once 'recursive_delete.php';
 
