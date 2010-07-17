@@ -6,6 +6,8 @@
  * @licence http://www.gnu.org/licenses/gpl-3.0.txt
  */
 
+define("DS",DIRECTORY_SEPARATOR);
+
 include_once 'Session.php';
 include_once 'Logger.php';
 include_once 'AppZoneException.php';

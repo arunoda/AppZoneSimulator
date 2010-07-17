@@ -40,7 +40,7 @@ class Registrar{
 	}
 	
 	public function getPhoneNoList(){
-		$filename=dirname(dirname(__FILE__))."/data/phones/".$this->appName.".lst";
+		$filename=dirname(dirname(__FILE__)).DS."data".DS."phones".DS.$this->appName.".lst";
 		if(!file_exists($filename)){
 			return  array();
 		}
@@ -52,7 +52,7 @@ class Registrar{
 	}
 	
 	public function writeIt($str){
-		$filename=(dirname(dirname(__FILE__))."/data/phones/".$this->appName.".lst");
+		$filename=(dirname(dirname(__FILE__)).DS."data".DS."phones".DS.$this->appName.".lst");
 		$f=fopen($filename,"w+");
 		fwrite($f, $str . "\n");
 		fclose($f);

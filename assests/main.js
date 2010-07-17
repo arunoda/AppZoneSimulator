@@ -190,8 +190,10 @@ $(document).ready(function(){
 	$('#destroyBtn').click(function(){
 		$.get('service.php?service=session&action=destroy',function(){
 			existsCheck();
+			$('#serverLog,#phoneLog').html("");
+			$('#phoneList div').detach();
+			$('#phoneList ul li').detach();
 		});
-		$('#serverLog,#phoneLog').html("");
 	});
 	
 	$('#createBtn').click(function(){

@@ -1,2 +1,0 @@
-{"appName":"demo-app","address":"[\"0721333333\"]","message":"Your message has been delivered!","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1279294758}
-{"appName":"demo-app","address":"list:all_registered","message":"hi says  all","statusCode":"SBL-SMS-MT-2000","statusMessage":"SUCCESS","timestamp":1279294758}

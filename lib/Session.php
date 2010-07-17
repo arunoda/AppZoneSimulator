@@ -14,7 +14,7 @@ class Session{
 	
 	public function __construct(){
 		
-		$dataFile=dirname(dirname(__FILE__))."/data/session.data";
+		$dataFile=dirname(dirname(__FILE__)).DS."data".DS."session.data";
 		if(file_exists($dataFile)){
 			$res=file($dataFile);
 			$resArr=json_decode($res[0],true);
@@ -29,7 +29,7 @@ class Session{
 	}
 	
 	public static function destroy(){
-		$res=recursive_remove_directory(dirname(dirname(__FILE__)). "/data",false);
+		$res=recursive_remove_directory(dirname(dirname(__FILE__)). DS."data",true);
 		if($res==false) throw new Exception("Cannot access data folder");
 	}
 	
@@ -42,15 +42,15 @@ class Session{
 		);
 		
 		Session::writeIt(
-			dirname(dirname(__FILE__))."/data/session.data", 
+			dirname(dirname(__FILE__)).DS."data".DS."session.data", 
 			json_encode($session)
 		);
 		
-		$res=mkdir(dirname(dirname(__FILE__))."/data/phones/");
+		$res=mkdir(dirname(dirname(__FILE__)).DS."data".DS."phones".DS);
 	}
 	
 	public static function isExists(){
-		return file_exists(dirname(dirname(__FILE__))."/data/session.data");
+		return file_exists(dirname(dirname(__FILE__)).DS."data".DS."session.data");
 	}
 	
 	private static function writeIt($filename,$str){
