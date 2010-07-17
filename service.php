@@ -72,7 +72,7 @@ if($type=='serverLog'){
 }
 
 function sendRequest($server,$postfields){
-		
+		if(substr($server, -1)!='/') $server.="/";
 		$ch = curl_init($server);
 		
 		curl_setopt($ch, CURLOPT_POST, 1);

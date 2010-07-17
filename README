@@ -1,0 +1,26 @@
+This is a Alternate Simulatot for AppZone.lk 
+Which is purely written in PHP and runs on any Operating System without any modification.
+
+Features
+--------
+Nice Web UI
+Covers life-cycle of a AppZone app
+Easy to install and configure
+Easy to view logs 
+Easy to send messages to your app
+
+Installation
+-------------
+1.First You need to have an PHP Web server. 
+	(XAMPP - http://www.apachefriends.org/en/xampp.html would be preferred)
+
+2.Then copy all the content of this folder into an place where in the web root
+	(Which is htdocs in xampp)
+	eg:-/xampp/htdocs/sim
+	NOTE: If you are on linux give 777 permission for the data folder 
+	
+3.Now the simulator will be runs on http://localhost/sim/
+
+Usage
+-------
+http://www.youtube.com/watch?v=dSh4s-zwknA
