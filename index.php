@@ -60,7 +60,7 @@ function getRequest(){
 		$rtn['message']=$_REQUEST['message'];
 		$rtn['address']=array();
 		$qryStr=$_SERVER["QUERY_STRING"];
-		if(!$_GET['address']){
+		if(!isset($_GET['address'])){
 			$qryStr=urldecode(@file_get_contents('php://input'));
 		}
 		
