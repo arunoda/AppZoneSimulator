@@ -1,1 +1,1 @@
-{"appName":"demo-app","password":"pass","reciever":"http:\/\/localhost\/jobs\/appZone-sim-php\/test"}
+{"appName":"appId","password":"password","reciever":"http:\/\/localhost:8082"}

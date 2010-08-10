@@ -51,7 +51,7 @@ if($type=='serverLog'){
 				$queryString .= urlencode($key) . '=' . urlencode($value) . '&';  
 			}
 				
-			$res=sendRequest($session->reciever, $queryString);
+			$res=sendRequest($session->reciever, $params);
 			$logger->logPhone($no, $session->appName, $params['correlator'], $message);
 			echo $res;	
 		}
